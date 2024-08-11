@@ -9,7 +9,7 @@ use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\GalleryController;
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrdersController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -25,7 +25,8 @@ Route::post('/login', [LoginController::class, 'login']);
 //products
 Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products', [ProductController::class, 'store']);
-Route::put('/products/{product}', [ProductController::class, 'update']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 Route::get('/product-count', [ProductController::class, 'getProductCount']);
 
